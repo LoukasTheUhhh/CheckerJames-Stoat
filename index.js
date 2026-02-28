@@ -9,7 +9,7 @@ const client = new Client();
 const INVITE_CACHE = new Map();
 const PENDING_MGR = new Map();
 
-const RANK_ORDER = ["Manager", "Boss", "Scientist", "Subject"];
+const RANK_ORDER = ["Manager", "Boss", "Scientist", "Subject", "Visitor"];
 
 function closestRole(input) {
     const match = RANK_ORDER.find(r => r.toLowerCase().startsWith(input.toLowerCase()));
