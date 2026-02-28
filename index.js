@@ -1,6 +1,6 @@
 const { Client } = require("revolt.js");
 const express = require('express');
-const app = express(
+const app = express();
 const port = process.env.PORT || 10000;
 app.get('/', (req, res) => res.send('System Online - Bot is active.'));
 app.listen(port, () => console.log(`Web server active on port ${port}`));
@@ -81,9 +81,9 @@ client.on("memberJoined", async (member) => {
                 await staffChannel.sendMessage(
                     `<@${inviter.id}> invited <@${member.id}>! Reply with:\n!role <@${member.id}> [RoleName]`
                 );
-        
+            }
             PENDING_MGR.set(inviter.id, { target: member.id, serverId: server.id });
-
+        
         } else if (topRole === "Boss") await assign(member, "Scientist");
         else if (topRole === "Scientist") await assign(member, "Subject");
         else if (topRole === "Subject") await assign(member, "Visitor");
