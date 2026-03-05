@@ -4,6 +4,9 @@ const app = express();
 const port = process.env.PORT || 10000;
 app.get('/', (req, res) => res.send('System Online - Bot is active.'));
 app.listen(port, () => console.log(`Web server active on port ${port}`));
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 const client = new Client();
 const INVITE_CACHE = new Map();
